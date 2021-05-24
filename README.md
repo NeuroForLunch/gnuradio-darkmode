@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/gnuradio/gnuradio/blob/master/docs/gnuradio.png" width="75%" />
+<img src="/docs/gnuradio.png" width="75%" />
 </p>
 
 [![Build](https://shield.lwan.ws/img/p5UKbS/weekly_runner)](https://ci.gnuradio.org/buildbot/#/)
@@ -25,24 +25,27 @@ as many questions have already been asked and answered. Please also
 [subscribe](https://lists.gnu.org/mailman/listinfo/discuss-gnuradio) to
 the mailing list and post your new questions there.
 
+<p align="center">
+<img src="/docs/darkmode-1.png" width="100%" />
+</p>
 
 ## How to Install GNU Radio
 
 
 ```bash
-sudo su
-mkdir -p /src \
-  && cd /src \
-  && git clone https://github.com/NeuroForLunch/gnuradio-darkmode.git --depth 1 --branch maint-3.8 \
-  && cd gnuradio-darkmode \
-  && mkdir build \
-  && cd build && cmake -DENABLE_INTERNAL_VOLK=OFF ../ \
-  && make \
-  && make install \
-  && ldconfig \
-  && cd / \
-  && rm -rf /src \
-  && exit
+$ sudo su
+$ mkdir -p /src \
+    && cd /src \
+    && git clone https://github.com/NeuroForLunch/gnuradio-darkmode.git --depth 1 --branch maint-3.8 \
+    && cd gnuradio-darkmode \
+    && mkdir build \
+    && cd build && cmake -DENABLE_INTERNAL_VOLK=OFF ../ \
+    && make \
+    && make install \
+    && ldconfig \
+    && cd / \
+    && rm -rf /src \
+    && exit
 ```
 
 ## Legal Matters
