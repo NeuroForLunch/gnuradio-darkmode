@@ -1,5 +1,5 @@
 """
-Copyright 2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright 2007, 2008, 2009, 2021 Free Software Foundation, Inc.
 This file is part of GNU Radio
 
 GNU Radio Companion is free software; you can redistribute it and/or
@@ -95,7 +95,7 @@ class Connection(CoreConnection, Drawable):
 
         def get_domain_color(domain_id):
             domain = self.parent_platform.domains.get(domain_id, None)
-            return colors.get_color(domain.color) if domain else colors.DEFAULT_DOMAIN_COLOR
+            return colors.CONNECTION_ENABLED_COLOR if domain else colors.DEFAULT_DOMAIN_COLOR
 
         if source.domain == GR_MESSAGE_DOMAIN:
             self._line_width_factor = 1.0
