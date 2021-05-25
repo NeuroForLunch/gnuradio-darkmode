@@ -53,6 +53,6 @@ $ mkdir -p /src \
 Some files have been changed many times throughout the years. Copyright
 notices at the top of source files list which years changes have been
 made. For some files, changes have occurred in many consecutive years.
-These files may often have the format of a year range (e.g., "2006 - 2011"),
+These files may often have the format of a year range (e.g., "2006 - 2021"),
 which indicates that these files have had copyrightable changes made
 during each year in the range, inclusive.
