@@ -22,7 +22,7 @@ linked to previous v3.8 releases should be rebuilt against this version.
 - Lower message latency, previously slow when block aliases were used
 - PMT: `is_dict()` no longer returns True for PMT pairs, only for PMT dicts
 - Util gnuradio-config-info gets --print-all for those that want it all
-- Allow Thrift versions up thorugh 0.13
+- Allow Thrift versions up through 0.13
 - (internal) Build system improvements and fixes
 - (internal) Reduce Boost usage by replacing bind() with lambdas supported in C++11
 
@@ -324,8 +324,8 @@ At LEAST the following authors contributed to this release.
 
 #### Project Scope
 
-- Codec2 development branch / future compat
-- Boost 1.71 compat
+- Codec2 development branch / future compatibility
+- Boost 1.71 compatibility
 - CI now checks for formatting
 
 #### gnuradio-runtime
@@ -352,7 +352,7 @@ At LEAST the following authors contributed to this release.
 
 - `sig_source`: `freq` port will be removed in the future
 
-### Added 
+### Added
 #### gr-analog
 
 - `sig_source`: `cmd` port adds support for dicts, setting of frequency,
