@@ -1,4 +1,4 @@
-FROM neuroforlunch/gnuradio-companion-plus:p2-source-dependencies
+FROM neuroforlunch/gnuradio-companion-plus:p2-source-dependencies-u18
 
 # This performs a self check on each push on whether it successfully builds.
 # Look for the ✅ in Github or the ❌ to know whether it succeeded or not.
@@ -6,7 +6,10 @@ FROM neuroforlunch/gnuradio-companion-plus:p2-source-dependencies
 RUN apt-get install -yq \
 libsndfile1-dev \
 libcairo2-dev \
-python-gi-cairo
+python3-cairo \
+python3-gi-cairo \
+python-gi-cairo \
+libcodec2-dev
 
 
 # Install GNUradio
