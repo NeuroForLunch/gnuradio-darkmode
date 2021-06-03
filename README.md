@@ -1,5 +1,5 @@
 <p align="center">
-<img src="/docs/gnuradio.png" width="75%" />
+<img src="https://github.com/NeuroForLunch/gnuradio-darkmode/raw/maint-3.8/docs/gnuradio.png" width="75%" />
 </p>
 
 GNU Radio is a free & open-source software development toolkit that
@@ -20,7 +20,7 @@ as many questions have already been asked and answered. Please also
 the mailing list and post your new questions there.
 
 <p align="center">
-<img src="/docs/darkmode-1.png" width="100%" />
+<img src="https://github.com/NeuroForLunch/gnuradio-darkmode/raw/maint-3.8/docs/darkmode-1.png" width="100%" />
 </p>
 
 ## How to Install GNU Radio
