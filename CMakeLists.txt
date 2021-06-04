@@ -407,7 +407,7 @@ endif(HAVE_CX_LIMITED_RANGE)
 # Distribute the README file
 ########################################################################
 install(
-    FILES README.md CONTRIBUTING.md CHANGELOG.md
+    FILES README.md
     DESTINATION ${GR_PKG_DOC_DIR}
 )
 
