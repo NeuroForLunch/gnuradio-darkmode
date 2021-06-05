@@ -26,36 +26,34 @@ def get_color(color_code):
 #################################################################################
 
 HIGHLIGHT_COLOR = get_color('#00FFFF')
-BORDER_COLOR = get_color('#616161')
+BORDER_COLOR = get_color('#3AFFE2')
 BORDER_COLOR_DISABLED = get_color('#888888')
-FONT_COLOR = get_color('#000000')
+FONT_COLOR = get_color('#26D8BE')
 
 # Missing blocks stuff
-MISSING_BLOCK_BACKGROUND_COLOR = get_color('#FFF2F2')
-MISSING_BLOCK_BORDER_COLOR = get_color('#FF0000')
+MISSING_BLOCK_BACKGROUND_COLOR = get_color('#000000')
+MISSING_BLOCK_BORDER_COLOR = get_color('#48171D')
 
 # Deprecated blocks
-# a light warm yellow
-BLOCK_DEPRECATED_BACKGROUND_COLOR = get_color('#FED86B')
-# orange
-BLOCK_DEPRECATED_BORDER_COLOR = get_color('#FF540B')
+BLOCK_DEPRECATED_BACKGROUND_COLOR = get_color('#5F4211')
+BLOCK_DEPRECATED_BORDER_COLOR = get_color('#181A1B')
 
 # Flow graph color constants
-FLOWGRAPH_BACKGROUND_COLOR = get_color('#FFFFFF')
-COMMENT_BACKGROUND_COLOR = get_color('#F3F3F3')
-FLOWGRAPH_EDGE_COLOR = COMMENT_BACKGROUND_COLOR
+FLOWGRAPH_BACKGROUND_COLOR = get_color('#181A1B')
+COMMENT_BACKGROUND_COLOR = get_color('#001B33')
+FLOWGRAPH_EDGE_COLOR = get_color('#FFFFFF')
 
 # Block color constants
-BLOCK_ENABLED_COLOR = get_color('#F1ECFF')
-BLOCK_DISABLED_COLOR = get_color('#CCCCCC')
-BLOCK_BYPASSED_COLOR = get_color('#F4FF81')
+BLOCK_ENABLED_COLOR = get_color('#181A1B')
+BLOCK_DISABLED_COLOR = get_color('#181A1B')
+BLOCK_BYPASSED_COLOR = get_color('#000000')
 
 # Connection color constants
-CONNECTION_ENABLED_COLOR = get_color('#000000')
-CONNECTION_DISABLED_COLOR = get_color('#BBBBBB')
-CONNECTION_ERROR_COLOR = get_color('#FF0000')
+CONNECTION_ENABLED_COLOR = get_color('#3AFFE2')
+CONNECTION_DISABLED_COLOR = get_color('#196056')
+CONNECTION_ERROR_COLOR = get_color('#D0021B')
 
-DEFAULT_DOMAIN_COLOR = get_color('#777777')
+DEFAULT_DOMAIN_COLOR = get_color('#FFFFFF')
 
 
 #################################################################################
@@ -109,4 +107,3 @@ LIGHT_THEME_STYLES = b"""
 
                         #enum_custom           { background-color: #EEEEEE; }
                     """
-

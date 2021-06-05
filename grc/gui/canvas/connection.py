@@ -83,7 +83,7 @@ class Connection(CoreConnection, Drawable):
 
         def get_domain_color(domain_id):
             domain = self.parent_platform.domains.get(domain_id, None)
-            return colors.get_color(domain.color) if domain else colors.DEFAULT_DOMAIN_COLOR
+            return colors.CONNECTION_ENABLED_COLOR if domain else colors.DEFAULT_DOMAIN_COLOR
 
         if source.domain == GR_MESSAGE_DOMAIN:
             self._line_width_factor = 1.0

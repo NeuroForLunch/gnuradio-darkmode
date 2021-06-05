@@ -64,28 +64,25 @@ PARAM_TYPE_MAP = {
 # Define types, native python + numpy
 VECTOR_TYPES = (tuple, list, set, numpy.ndarray)
 
-# Updating colors. Using the standard color palette from:
-#  http://www.google.com/design/spec/style/color.html#color-color-palette
-# Most are based on the main, primary color standard. Some are within
-# that color's spectrum when it was deemed necessary.
-GRC_COLOR_BROWN = '#795548'
-GRC_COLOR_BLUE = '#2196F3'
+# Dark mode colors. See screenshot on README.md
+GRC_COLOR_BROWN = '#2A1D19'
+GRC_COLOR_BLUE = '#0B3454'
 GRC_COLOR_LIGHT_GREEN = '#8BC34A'
 GRC_COLOR_GREEN = '#4CAF50'
 GRC_COLOR_AMBER = '#FFC107'
 GRC_COLOR_PURPLE = '#9C27B0'
 GRC_COLOR_CYAN = '#00BCD4'
 GRC_COLOR_GR_ORANGE = '#FF6905'
-GRC_COLOR_ORANGE = '#F57C00'
+GRC_COLOR_ORANGE = '#552B00'
 GRC_COLOR_LIME = '#CDDC39'
 GRC_COLOR_TEAL = '#009688'
-GRC_COLOR_YELLOW = '#FFEB3B'
+GRC_COLOR_YELLOW = '#595214'
 GRC_COLOR_PINK = '#F50057'
-GRC_COLOR_PURPLE_A100 = '#EA80FC'
-GRC_COLOR_PURPLE_A400 = '#D500F9'
-GRC_COLOR_DARK_GREY = '#72706F'
-GRC_COLOR_GREY = '#BDBDBD'
-GRC_COLOR_WHITE = '#FFFFFF'
+GRC_COLOR_PURPLE_A100 = '#512C57'
+GRC_COLOR_PURPLE_A400 = '#4A0056'
+GRC_COLOR_DARK_GREY = '#3AFFE2'
+GRC_COLOR_GREY = '#414141'
+GRC_COLOR_WHITE = '#595959'
 
 CORE_TYPES = (  # name, key, sizeof, color
     ('Complex Float 64',    'fc64', 16, GRC_COLOR_BROWN),
