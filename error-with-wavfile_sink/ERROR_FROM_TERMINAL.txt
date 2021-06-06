@@ -1,0 +1,22 @@
+Scanning dependencies of target blocks_swig1
+[ 56%] Building CXX object gr-blocks/swig/CMakeFiles/blocks_swig1.dir/CMakeFiles/blocks_swig1.dir/blocks_swig1PYTHON_wrap.cxx.o
+/home/nfl/Desktop/audio-upgrade/build/gr-blocks/swig/CMakeFiles/blocks_swig1.dir/blocks_swig1PYTHON_wrap.cxx: In function ‘PyObject* _wrap_wavfile_sink_make(PyObject*, PyObject*, PyObject*)’:
+/home/nfl/Desktop/audio-upgrade/build/gr-blocks/swig/CMakeFiles/blocks_swig1.dir/blocks_swig1PYTHON_wrap.cxx:5583:80: error: no matching function for call to ‘gr::blocks::wavfile_sink::make(const char*, int&, unsigned int&, int&)’
+ 5583 |       result = gr::blocks::wavfile_sink::make((char const *)arg1,arg2,arg3,arg4);
+      |                                                                                ^
+In file included from /home/nfl/Desktop/audio-upgrade/build/gr-blocks/swig/CMakeFiles/blocks_swig1.dir/blocks_swig1PYTHON_wrap.cxx:2913:
+/home/nfl/Desktop/audio-upgrade/gr-blocks/lib/../include/gnuradio/blocks/wavfile_sink.h:55:17: note: candidate: ‘static gr::blocks::wavfile_sink::sptr gr::blocks::wavfile_sink::make(const char*, int, unsigned int, gr::blocks::wavfile_format_t, gr::blocks::wavfile_subformat_t, bool)’
+   55 |     static sptr make(const char* filename,
+      |                 ^~~~
+/home/nfl/Desktop/audio-upgrade/gr-blocks/lib/../include/gnuradio/blocks/wavfile_sink.h:55:17: note:   candidate expects 6 arguments, 4 provided
+/home/nfl/Desktop/audio-upgrade/build/gr-blocks/swig/CMakeFiles/blocks_swig1.dir/blocks_swig1PYTHON_wrap.cxx: In function ‘PyObject* _wrap_wavfile_sink_sptr_make(PyObject*, PyObject*, PyObject*)’:
+/home/nfl/Desktop/audio-upgrade/build/gr-blocks/swig/CMakeFiles/blocks_swig1.dir/blocks_swig1PYTHON_wrap.cxx:70248:63: error: no matching function for call to ‘gr::blocks::wavfile_sink::make(const char*, int&, unsigned int&, int&)’
+70248 |       result = (*arg1)->make((char const *)arg2,arg3,arg4,arg5);
+      |                                                               ^
+In file included from /home/nfl/Desktop/audio-upgrade/build/gr-blocks/swig/CMakeFiles/blocks_swig1.dir/blocks_swig1PYTHON_wrap.cxx:2913:
+/home/nfl/Desktop/audio-upgrade/gr-blocks/lib/../include/gnuradio/blocks/wavfile_sink.h:55:17: note: candidate: ‘static gr::blocks::wavfile_sink::sptr gr::blocks::wavfile_sink::make(const char*, int, unsigned int, gr::blocks::wavfile_format_t, gr::blocks::wavfile_subformat_t, bool)’
+   55 |     static sptr make(const char* filename,
+      |                 ^~~~
+/home/nfl/Desktop/audio-upgrade/gr-blocks/lib/../include/gnuradio/blocks/wavfile_sink.h:55:17: note:   candidate expects 6 arguments, 4 provided
+make[2]: *** [gr-blocks/swig/CMakeFiles/blocks_swig1.dir/build.make:63: gr-blocks/swig/CMakeFiles/blocks_swig1.dir/CMakeFiles/blocks_swig1.dir/blocks_swig1PYTHON_wrap.cxx.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5724: gr-blocks/swig/CMakeFiles/blocks_swig1.dir/all] Error 2

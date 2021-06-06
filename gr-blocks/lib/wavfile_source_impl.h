@@ -23,8 +23,9 @@
 #ifndef INCLUDED_GR_WAVFILE_SOURCE_IMPL_H
 #define INCLUDED_GR_WAVFILE_SOURCE_IMPL_H
 
+#include <gnuradio/blocks/wavfile.h>
 #include <gnuradio/blocks/wavfile_source.h>
-#include <cstdio> // for FILE
+#include <sndfile.h> // for SNDFILE
 
 namespace gr {
 namespace blocks {
@@ -32,34 +33,36 @@ namespace blocks {
 class wavfile_source_impl : public wavfile_source
 {
 private:
-    FILE* d_fp;
+    SNDFILE* d_fp;
     bool d_repeat;
 
-    unsigned d_sample_rate;
-    int d_nchans;
-    int d_bytes_per_sample;
-    int d_first_sample_pos;
-    unsigned d_samples_per_chan;
-    unsigned d_sample_idx;
-    int d_normalize_shift;
-    int d_normalize_fac;
+    wav_header_info d_h;
+    long long d_sample_idx;
+    std::vector<float> d_buffer;
 
-    /*!
-     * \brief Convert an integer sample value to a float value within [-1;1]
-     */
-    float convert_to_float(short int sample);
+    static const int s_items_size = 1024;
+    static const int s_max_channels = 24;
+//    unsigned d_sample_rate;
+//    int d_nchans;
+//    int d_bytes_per_sample;
+//    int d_first_sample_pos;
+//    unsigned d_samples_per_chan;
+//    unsigned d_sample_idx;
+//    int d_normalize_shift;
+//    int d_normalize_fac;
+//    float convert_to_float(short int sample);
 
 public:
     wavfile_source_impl(const char* filename, bool repeat);
-    ~wavfile_source_impl();
+    virtual ~wavfile_source_impl();
 
-    unsigned int sample_rate() const { return d_sample_rate; };
+    virtual unsigned int sample_rate() const { return d_h.sample_rate; };
 
-    int bits_per_sample() const { return d_bytes_per_sample * 8; };
+    virtual int bits_per_sample() const { return d_h.bytes_per_sample * 8; };
 
-    int channels() const { return d_nchans; };
+    virtual int channels() const { return d_h.nchans; };
 
-    int work(int noutput_items,
+    virtual int work(int noutput_items,
              gr_vector_const_void_star& input_items,
              gr_vector_void_star& output_items);
 };

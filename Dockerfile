@@ -1,4 +1,4 @@
-FROM neuroforlunch/gnuradio-companion-plus:p2-source-dependencies-u18
+FROM neuroforlunch/gnuradio-companion-plus:p2-source-dependencies-u20
 
 # This performs a self check on each push on whether it successfully builds.
 # Look for the ✅ in Github or the ❌ to know whether it succeeded or not.
@@ -8,8 +8,15 @@ libsndfile1-dev \
 libcairo2-dev \
 python3-cairo \
 python3-gi-cairo \
-python-gi-cairo \
-libcodec2-dev
+libcodec2-dev \
+libunwind-dev \
+thrift-compiler \
+libthrift-c-glib-dev \
+libthrift-dev \
+python3-thrift \
+libqt5svg5-dev \
+at-spi2-core \
+&& pip3 install PyYAML
 
 
 # Install GNUradio
@@ -17,7 +24,7 @@ libcodec2-dev
 # Add the necessary exports to have GRC load correctly
 RUN mkdir -p /src \
   && cd /src \
-  && git clone https://github.com/NeuroForLunch/gnuradio-darkmode.git --depth 1 --branch maint-3.8 \
+  && git clone https://github.com/NeuroForLunch/gnuradio-darkmode.git --depth 1 --branch maint-3.8-audio \
   && cd gnuradio-darkmode \
   && mkdir build \
   && cd build && cmake -DENABLE_INTERNAL_VOLK=OFF ../ \
