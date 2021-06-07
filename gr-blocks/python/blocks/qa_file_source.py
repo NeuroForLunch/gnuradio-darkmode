@@ -98,7 +98,7 @@ class test_file_source(gr_unittest.TestCase):
 
         src = blocks.file_source(gr.sizeof_float, self._datafilename)
         self.assertTrue(src.seek(0, os.SEEK_SET))
-        self.assertTrue(src.seek(len(self._vector)-1, os.SEEK_SET))
+        self.assertTrue(src.seek(len(self._vector) - 1, os.SEEK_SET))
         # Seek past end of file - this will also log a warning
         self.assertFalse(src.seek(len(self._vector), os.SEEK_SET))
         # Negative seek - this will also log a warning
@@ -149,5 +149,6 @@ class test_file_source(gr_unittest.TestCase):
         self.assertEqual(str(tags[1].value), "1")
         self.assertEqual(tags[1].offset, 1000)
 
+
 if __name__ == '__main__':
-    gr_unittest.run(test_file_source, "test_file_source.xml")
+    gr_unittest.run(test_file_source)

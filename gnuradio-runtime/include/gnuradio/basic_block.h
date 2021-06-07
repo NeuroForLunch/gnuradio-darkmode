@@ -38,6 +38,7 @@
 #endif
 #include <deque>
 #include <iostream>
+#include <functional>
 #include <map>
 #include <string>
 

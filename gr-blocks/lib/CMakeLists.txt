@@ -20,6 +20,8 @@
 ########################################################################
 # Setup compatibility checks and defines
 ########################################################################
+include(GrMiscUtils)
+GR_CHECK_HDR_N_DEF(io.h HAVE_IO_H)
 include(${CMAKE_CURRENT_SOURCE_DIR}/ConfigChecks.cmake)
 
 ########################################################################
@@ -60,7 +62,7 @@ add_library(gnuradio-blocks
     file_sink_base.cc
     pack_k_bits.cc
     unpack_k_bits.cc
-    wavfile.cc
+    #wavfile.cc
     add_const_bb_impl.cc
     add_const_ss_impl.cc
     add_const_ii_impl.cc
@@ -184,7 +186,8 @@ add_library(gnuradio-blocks
 
 target_link_libraries(gnuradio-blocks
   gnuradio-runtime
-  ${GR_VOLK_LIB}
+  sndfile::sndfile
+  Volk::volk
   )
 
 target_include_directories(gnuradio-blocks
@@ -221,7 +224,7 @@ IF(MSVC)
 ENDIF(MSVC)
 
 if(BUILD_SHARED_LIBS)
-  GR_LIBRARY_FOO(gnuradio-blocks)
+  GR_LIBRARY_FOO(gnuradio-blocks SNDFILE)
 endif()
 
 ########################################################################

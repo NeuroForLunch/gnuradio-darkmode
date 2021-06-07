@@ -25,6 +25,7 @@
 
 #include <gnuradio/api.h>
 #include <gnuradio/block.h>
+#include <string>
 #include <gnuradio/feval.h>
 
 namespace gr {

@@ -25,19 +25,17 @@
 ////////////////////////////////////////////////////////////////////////
 // Cross-platform attribute macros
 ////////////////////////////////////////////////////////////////////////
-#if defined __GNUC__
+#if defined(__clang__) && (!defined(_MSC_VER))
+// AppleClang also defines __GNUC__, so do this check first.  These
+// will probably be the same as for __GNUC__, but let's keep them
+// separate just to be safe.
 #define __GR_ATTR_ALIGNED(x) __attribute__((aligned(x)))
 #define __GR_ATTR_UNUSED __attribute__((unused))
 #define __GR_ATTR_INLINE __attribute__((always_inline))
 #define __GR_ATTR_DEPRECATED __attribute__((deprecated))
-#if __GNUC__ >= 4
 #define __GR_ATTR_EXPORT __attribute__((visibility("default")))
 #define __GR_ATTR_IMPORT __attribute__((visibility("default")))
-#else
-#define __GR_ATTR_EXPORT
-#define __GR_ATTR_IMPORT
-#endif
-#elif defined __clang__
+#elif defined __GNUC__
 #define __GR_ATTR_ALIGNED(x) __attribute__((aligned(x)))
 #define __GR_ATTR_UNUSED __attribute__((unused))
 #define __GR_ATTR_INLINE __attribute__((always_inline))

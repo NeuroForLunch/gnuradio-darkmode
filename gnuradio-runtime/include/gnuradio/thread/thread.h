@@ -29,6 +29,7 @@
 #include <boost/thread/locks.hpp>
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/thread.hpp>
+#include <memory>
 #include <vector>
 
 #if defined(_WIN32) || defined(__WIN32__) || defined(WIN32)

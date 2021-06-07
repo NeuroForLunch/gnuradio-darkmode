@@ -29,6 +29,7 @@
 #include <gnuradio/thread/thread.h>
 #include <boost/weak_ptr.hpp>
 #include <map>
+#include <memory>
 
 namespace gr {
 

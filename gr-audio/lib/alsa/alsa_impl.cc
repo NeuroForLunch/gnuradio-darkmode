@@ -21,6 +21,7 @@
  */
 
 #ifdef HAVE_CONFIG_H
+#warning "ALSA CONFIG H"
 #include "config.h"
 #endif
 

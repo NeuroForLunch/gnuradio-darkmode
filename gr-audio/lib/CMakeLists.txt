@@ -93,31 +93,33 @@ endif(JACK_FOUND)
 ########################################################################
 ## OSX Support
 ########################################################################
-include(CheckIncludeFileCXX)
-check_include_file_cxx(AudioUnit/AudioUnit.h AUDIO_UNIT_H)
-check_include_file_cxx(AudioToolbox/AudioToolbox.h AUDIO_TOOLBOX_H)
+if(DARWIN)
+  include(CheckIncludeFileCXX)
+  check_include_file_cxx(AudioUnit/AudioUnit.h AUDIO_UNIT_H)
+  check_include_file_cxx(AudioToolbox/AudioToolbox.h AUDIO_TOOLBOX_H)
 
-if(AUDIO_UNIT_H AND AUDIO_TOOLBOX_H)
-    target_compile_definitions(gnuradio-audio PRIVATE -DOSX_FOUND)
-    target_link_libraries(gnuradio-audio
-      PUBLIC
-        "-framework AudioUnit"
-        "-framework CoreAudio"
-        "-framework AudioToolbox"
-        "-framework Carbon"
-     )
-    target_sources(gnuradio-audio PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/osx/osx_impl.cc
-        ${CMAKE_CURRENT_SOURCE_DIR}/osx/osx_source.cc
-        ${CMAKE_CURRENT_SOURCE_DIR}/osx/osx_sink.cc
-    )
+  if(AUDIO_UNIT_H AND AUDIO_TOOLBOX_H)
+      target_compile_definitions(gnuradio-audio PRIVATE -DOSX_FOUND)
+      target_link_libraries(gnuradio-audio
+        PUBLIC
+          "-framework AudioUnit"
+          "-framework CoreAudio"
+          "-framework AudioToolbox"
+          "-framework Carbon"
+       )
+      target_sources(gnuradio-audio PRIVATE
+          ${CMAKE_CURRENT_SOURCE_DIR}/osx/osx_impl.cc
+          ${CMAKE_CURRENT_SOURCE_DIR}/osx/osx_source.cc
+          ${CMAKE_CURRENT_SOURCE_DIR}/osx/osx_sink.cc
+      )
 
-    gr_append_subcomponent("osx")
-    set(OSX_AUDIO_VALID 1 CACHE INTERNAL "OSX Audio is valid")
-    list(APPEND gr_audio_confs ${CMAKE_CURRENT_SOURCE_DIR}/osx/gr-audio-osx.conf)
-else()
-    set(OSX_AUDIO_VALID 0 CACHE INTERNAL "OSX Audio is not valid")
-endif()
+      gr_append_subcomponent("osx")
+      set(OSX_AUDIO_VALID 1 CACHE INTERNAL "OSX Audio is valid")
+      list(APPEND gr_audio_confs ${CMAKE_CURRENT_SOURCE_DIR}/osx/gr-audio-osx.conf)
+  else()
+      set(OSX_AUDIO_VALID 0 CACHE INTERNAL "OSX Audio is not valid")
+  endif()
+endif(DARWIN)
 
 ########################################################################
 ## PortAudio Support

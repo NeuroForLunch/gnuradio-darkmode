@@ -43,6 +43,7 @@ install(FILES
   gr_complex.h
   hier_block2.h
   high_res_timer.h
+  integer_math.h
   io_signature.h
   logger.h
   math.h

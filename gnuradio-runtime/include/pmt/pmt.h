@@ -30,6 +30,7 @@
 #include <boost/shared_ptr.hpp>
 #include <complex>
 #include <iosfwd>
+#include <memory>
 #include <stdexcept>
 #include <string>
 #include <vector>

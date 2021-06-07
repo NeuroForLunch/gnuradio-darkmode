@@ -20,6 +20,7 @@
 #include <boost/function.hpp>
 #include <boost/thread/shared_mutex.hpp>
 #include <boost/utility.hpp>
+#include <memory>
 
 namespace gr {
 namespace thread {

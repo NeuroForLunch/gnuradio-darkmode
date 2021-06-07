@@ -1,3 +1,5 @@
+# Special version: Wav file reader is from v3.9
+
 <p align="center">
 <img src="https://github.com/NeuroForLunch/gnuradio-darkmode/raw/maint-3.8/docs/gnuradio.png" width="75%" />
 </p>
@@ -30,7 +32,7 @@ the mailing list and post your new questions there.
 $ sudo su
 $ mkdir -p /src \
     && cd /src \
-    && git clone https://github.com/NeuroForLunch/gnuradio-darkmode.git --depth 1 --branch maint-3.8 \
+    && git clone https://github.com/NeuroForLunch/gnuradio-darkmode.git --depth 1 --branch maint-3.8-audio \
     && cd gnuradio-darkmode \
     && mkdir build \
     && cd build && cmake -DENABLE_INTERNAL_VOLK=OFF ../ \

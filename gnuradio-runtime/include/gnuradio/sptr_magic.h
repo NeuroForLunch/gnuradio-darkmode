@@ -24,6 +24,7 @@
 
 #include <gnuradio/api.h>
 #include <boost/shared_ptr.hpp>
+#include <memory>
 
 namespace gr {
 class basic_block;
