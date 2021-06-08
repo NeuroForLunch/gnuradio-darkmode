@@ -141,16 +141,16 @@ class TextDisplay(SimpleTextDisplay):
         """Create a popup menu for the scroll lock and clear functions"""
         menu.append(Gtk.SeparatorMenuItem())
 
-        lock = Gtk.CheckMenuItem(label = "Scroll Lock")
+        lock = Gtk.CheckMenuItem(label="Scroll Lock")
         menu.append(lock)
         lock.set_active(self.scroll_lock)
         lock.connect('activate', self.scroll_back_cb, view)
 
-        save = Gtk.ImageMenuItem(label = "Save Console")
+        save = Gtk.ImageMenuItem(label="Save Console")
         menu.append(save)
         save.connect('activate', self.save_cb, view)
 
-        clear = Gtk.ImageMenuItem(label = "Clear Console")
+        clear = Gtk.ImageMenuItem(label="Clear Console")
         menu.append(clear)
         clear.connect('activate', self.clear_cb, view)
         menu.show_all()
@@ -345,6 +345,22 @@ def show_keyboard_shortcuts(parent):
     ).run_and_destroy()
 
 
+def show_get_involved(parent):
+    """Get Involved Instructions"""
+    markup = textwrap.dedent("""\
+    <b>Welcome to GNU Radio Community!</b>
+    \n\
+    For more details on contributing to GNU Radio and getting engaged with our great community visit <a href="https://wiki.gnuradio.org/index.php/HowToGetInvolved">here</a>.
+    \n\
+    You can also join our <a href="https://chat.gnuradio.org/">Matrix chat server</a>, IRC Channel (#gnuradio) or contact through our <a href="https://lists.gnu.org/mailman/listinfo/discuss-gnuradio">mailing list (discuss-gnuradio)</a>.
+    \
+    """)
+
+    MessageDialogWrapper(
+        parent, Gtk.MessageType.QUESTION, Gtk.ButtonsType.CLOSE, title='Get - Involved', markup=markup
+    ).run_and_destroy()
+
+
 def show_types(parent):
     """ Display information about standard data types. """
     colors = [(name, color) for name, key, sizeof, color in Constants.CORE_TYPES]
@@ -364,7 +380,7 @@ def show_types(parent):
 def show_missing_xterm(parent, xterm):
     markup = textwrap.dedent("""\
         The xterm executable {0!r} is missing.
-        You can change this setting in your gnurado.conf, in section [grc], 'xterm_executable'.
+        You can change this setting in your gnuradio.conf, in section [grc], 'xterm_executable'.
         \n\
         (This message is shown only once)\
     """).format(xterm)
