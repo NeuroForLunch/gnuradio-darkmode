@@ -46,8 +46,20 @@ GR_CHECK_BUILD_TYPE(${CMAKE_BUILD_TYPE})
 SET(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE} CACHE STRING "")
 message(STATUS "Build type set to ${CMAKE_BUILD_TYPE}.")
 
+# Set the build date
+string(TIMESTAMP BUILD_DATE "%a, %d %b %Y %H:%M:%SZ" UTC)
+string(TIMESTAMP BUILD_DATE_SHORT "%Y-%m-%d" UTC)
+message(STATUS "Build date set to ${BUILD_DATE}.")
+
 include(GrComponent)
+########################################################################
+# Setup Boost for global use (within this build)
+# Do this before enabling testing support, as it depends
+# on unit_test_framework
+########################################################################
+include(GrBoost)
 GR_REGISTER_COMPONENT("testing-support" ENABLE_TESTING)
+         Boost_UNIT_TEST_FRAMEWORK_FOUND )
 
 # Set the version information here
 SET(VERSION_MAJOR 3)
@@ -358,11 +370,6 @@ add_custom_target(uninstall
 )
 
 ########################################################################
-# Setup Boost for global use (within this build)
-########################################################################
-include(GrBoost)
-
-########################################################################
 # Enable python component
 ########################################################################
 include(GrPython)
@@ -377,12 +384,39 @@ if(SWIG_FOUND)
     endif()
 endif(SWIG_FOUND)
 
+GR_PYTHON_CHECK_MODULE(
+    "numpy"
+    numpy
+    "LooseVersion(numpy.__version__) >= LooseVersion('${GR_NUMPY_MIN_VERSION}')"
+    NUMPY_FOUND)
+# Needed for automatic regeneration of some bindings
+GR_PYTHON_CHECK_MODULE_RAW(
+    "pygccxml"
+    "import pygccxml"
+    PYGCCXML_FOUND
+    )
+
+
+find_package(pybind11 REQUIRED)
+IF(${pybind11_VERSION} VERSION_LESS ${PYBIND11_MIN_VERSION})
+    message(FATAL_ERROR "pybind11 version ${pybind11_VERSION} < ${PYBIND11_MIN_VERSION}")
+ENDIF()
+
+execute_process(
+    COMMAND "${PYTHON_EXECUTABLE}" -c
+    "try:\n import numpy\n import os\n inc_path = numpy.get_include()\n if os.path.exists(os.path.join(inc_path, 'numpy', 'arrayobject.h')):\n  print(inc_path, end='')\nexcept:\n pass"
+    OUTPUT_VARIABLE PYTHON_NUMPY_INCLUDE_DIR)
+# format path in CMake-style for consistency with other path variables
+# (a consistent style helps conda builds by using the same path separators)
+file(TO_CMAKE_PATH "${PYTHON_NUMPY_INCLUDE_DIR}" PYTHON_NUMPY_INCLUDE_DIR)
 include(GrComponent)
 GR_REGISTER_COMPONENT("python-support" ENABLE_PYTHON
     PYTHONLIBS_FOUND
     SWIG_FOUND
     SWIG_VERSION_CHECK
     SIX_FOUND
+    pybind11_FOUND
+    NUMPY_FOUND
 )
 
 if(${CMAKE_BUILD_TYPE} STREQUAL "Coverage")

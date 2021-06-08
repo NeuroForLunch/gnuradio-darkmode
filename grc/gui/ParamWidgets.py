@@ -321,16 +321,16 @@ class FileParam(EntryParam):
         # build the dialog
         if self.param.dtype == 'file_open':
             file_dialog = Gtk.FileChooserDialog(
-                title = 'Open a Data File...',action = Gtk.FileChooserAction.OPEN,
+                title='Open a Data File...', action=Gtk.FileChooserAction.OPEN,
                 transient_for=self._transient_for,
             )
-            file_dialog.add_buttons( 'gtk-cancel', Gtk.ResponseType.CANCEL, 'gtk-open' , Gtk.ResponseType.OK )
+            file_dialog.add_buttons('gtk-cancel', Gtk.ResponseType.CANCEL, 'gtk-open', Gtk.ResponseType.OK)
         elif self.param.dtype == 'file_save':
             file_dialog = Gtk.FileChooserDialog(
-                title = 'Save a Data File...',action = Gtk.FileChooserAction.SAVE,
+                title='Save a Data File...', action=Gtk.FileChooserAction.SAVE,
                 transient_for=self._transient_for,
             )
-            file_dialog.add_buttons( 'gtk-cancel', Gtk.ResponseType.CANCEL, 'gtk-save', Gtk.ResponseType.OK )
+            file_dialog.add_buttons('gtk-cancel', Gtk.ResponseType.CANCEL, 'gtk-save', Gtk.ResponseType.OK)
             file_dialog.set_do_overwrite_confirmation(True)
             file_dialog.set_current_name(basename)  # show the current filename
         else:

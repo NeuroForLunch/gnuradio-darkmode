@@ -43,6 +43,9 @@ class Param(CoreParam):
         if dtype in ('file_open', 'file_save'):
             input_widget_cls = ParamWidgets.FileParam
 
+        elif dtype == 'dir_select':
+            input_widget_cls = ParamWidgets.DirectoryParam
+
         elif dtype == 'enum':
             input_widget_cls = ParamWidgets.EnumParam
 
@@ -78,7 +81,13 @@ class Param(CoreParam):
         errors = self.get_error_messages()
         tooltip_lines = ['Key: ' + self.key, 'Type: ' + self.dtype]
         if self.is_valid():
-            value = str(self.get_evaluated())
+            value = self.get_evaluated()
+            if hasattr(value, "__len__"):
+                tooltip_lines.append('Length: {}'.format(len(value)))
+            value = str(value)
+            # ensure that value is a UTF-8 string
+            # Old PMTs could produce non-UTF-8 strings
+            value = value.encode('utf-8', 'backslashreplace').decode('utf-8')
             if len(value) > 100:
                 value = '{}...{}'.format(value[:50], value[-50:])
             tooltip_lines.append('Value: ' + value)
@@ -91,19 +100,19 @@ class Param(CoreParam):
 
 
 
-        ##################################################
-        # Truncate helper method
-        ##################################################
+    ##################################################
+    # Truncate helper method
+    ##################################################
     def truncate(self, string, style=0):
-            max_len = max(27 - len(self.name), 3)
-            if len(string) > max_len:
-                if style < 0:  # Front truncate
-                    string = '...' + string[3-max_len:]
-                elif style == 0:  # Center truncate
-                    string = string[:max_len//2 - 3] + '...' + string[-max_len//2:]
-                elif style > 0:  # Rear truncate
-                    string = string[:max_len-3] + '...'
-            return string
+        max_len = max(27 - len(self.name), 3)
+        if len(string) > max_len:
+            if style < 0:  # Front truncate
+                string = '...' + string[3-max_len:]
+            elif style == 0:  # Center truncate
+                string = string[:max_len//2 - 3] + '...' + string[-max_len//2:]
+            elif style > 0:  # Rear truncate
+                string = string[:max_len-3] + '...'
+        return string
 
     def pretty_print(self):
         """
@@ -148,6 +157,9 @@ class Param(CoreParam):
         else:
             # Other types
             dt_str = str(e)
+            # ensure that value is a UTF-8 string
+            # Old PMTs could produce non-UTF-8 strings
+            dt_str = dt_str.encode('utf-8', 'backslashreplace').decode('utf-8')
 
         # Done
         return self.truncate(dt_str, truncate)

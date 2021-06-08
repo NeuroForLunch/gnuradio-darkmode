@@ -27,7 +27,8 @@ RUN mkdir -p /src \
   && git clone https://github.com/NeuroForLunch/gnuradio-darkmode.git --depth 1 --branch maint-3.8-audio \
   && cd gnuradio-darkmode \
   && mkdir build \
-  && cd build && cmake -DENABLE_INTERNAL_VOLK=OFF ../ \
+  && cd build \
+  && cmake -DENABLE_INTERNAL_VOLK=OFF ../ \
   && make \
   && make install \
   && ldconfig \
