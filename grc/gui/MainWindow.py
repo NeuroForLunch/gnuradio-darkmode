@@ -368,7 +368,7 @@ class MainWindow(Gtk.ApplicationWindow):
         for page in self.get_pages():
             file_name = os.path.splitext(os.path.basename(page.file_path))[0]
             page.set_markup('<span foreground="{foreground}">{title}{ro}</span>'.format(
-                foreground='black' if page.saved else 'red', ro=' (ro)' if page.get_read_only() else '',
+                foreground='white' if page.saved else 'red', ro=' (ro)' if page.get_read_only() else '',
                 title=Utils.encode(file_name or NEW_FLOGRAPH_TITLE),
             ))
             fpath = page.file_path

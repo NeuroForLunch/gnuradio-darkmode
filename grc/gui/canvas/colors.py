@@ -72,42 +72,42 @@ PORT_TYPE_TO_COLOR.update((key, get_color(color)) for key, (_, color) in Constan
 # param box colors
 #################################################################################
 DARK_THEME_STYLES = b"""
-                         #dtype_complex         { background-color: #3399FF; }
-                         #dtype_real            { background-color: #FF8C69; }
-                         #dtype_float           { background-color: #653323; }
-                         #dtype_int             { background-color: #0F2419; }
+                         #dtype_complex         { background-color: #404552; }
+                         #dtype_real            { background-color: #404552; }
+                         #dtype_float           { background-color: #404552; }
+                         #dtype_int             { background-color: #404552; }
 
-                         #dtype_complex_vector  { background-color: #3399AA; }
-                         #dtype_real_vector     { background-color: #CC8C69; }
-                         #dtype_float_vector    { background-color: #CC8C69; }
-                         #dtype_int_vector      { background-color: #00CC99; }
+                         #dtype_complex_vector  { background-color: #404552; }
+                         #dtype_real_vector     { background-color: #404552; }
+                         #dtype_float_vector    { background-color: #404552; }
+                         #dtype_int_vector      { background-color: #404552; }
 
-                         #dtype_bool            { background-color: #0F2419; }
-                         #dtype_hex             { background-color: #0F2419; }
-                         #dtype_string          { background-color: #CC66CC; }
-                         #dtype_id              { background-color: #001B33; }
-                         #dtype_stream_id       { background-color: #001B33; }
-                         #dtype_raw             { background-color: #23272A; }
+                         #dtype_bool            { background-color: #404552; }
+                         #dtype_hex             { background-color: #404552; }
+                         #dtype_string          { background-color: #404552; }
+                         #dtype_id              { background-color: #404552; }
+                         #dtype_stream_id       { background-color: #404552; }
+                         #dtype_raw             { background-color: #404552; }
 
-                         #enum_custom           { background-color: #001B33; }
+                         #enum_custom           { background-color: #404552; }
                      """
 LIGHT_THEME_STYLES = b"""
-                        #dtype_complex         { background-color: #3399FF; }
-                        #dtype_real            { background-color: #FF8C69; }
-                        #dtype_float           { background-color: #653323; }
-                        #dtype_int             { background-color: #00FF99; }
+                         #dtype_complex         { background-color: #404552; }
+                         #dtype_real            { background-color: #404552; }
+                         #dtype_float           { background-color: #404552; }
+                         #dtype_int             { background-color: #404552; }
 
-                        #dtype_complex_vector  { background-color: #3399AA; }
-                        #dtype_real_vector     { background-color: #CC8C69; }
-                        #dtype_float_vector    { background-color: #CC8C69; }
-                        #dtype_int_vector      { background-color: #00CC99; }
+                         #dtype_complex_vector  { background-color: #404552; }
+                         #dtype_real_vector     { background-color: #404552; }
+                         #dtype_float_vector    { background-color: #404552; }
+                         #dtype_int_vector      { background-color: #404552; }
 
-                        #dtype_bool            { background-color: #00FF99; }
-                        #dtype_hex             { background-color: #00FF99; }
-                        #dtype_string          { background-color: #CC66CC; }
-                        #dtype_id              { background-color: #DDDDDD; }
-                        #dtype_stream_id       { background-color: #DDDDDD; }
-                        #dtype_raw             { background-color: #FFFFFF; }
+                         #dtype_bool            { background-color: #404552; }
+                         #dtype_hex             { background-color: #404552; }
+                         #dtype_string          { background-color: #404552; }
+                         #dtype_id              { background-color: #404552; }
+                         #dtype_stream_id       { background-color: #404552; }
+                         #dtype_raw             { background-color: #404552; }
 
-                        #enum_custom           { background-color: #EEEEEE; }
+                         #enum_custom           { background-color: #404552; }
                     """

@@ -46,7 +46,7 @@ DEFAULT_CANVAS_SIZE_DEFAULT = 1280, 1024
 FONT_SIZE = DEFAULT_FONT_SIZE = 8
 FONT_FAMILY = "Sans"
 BLOCK_FONT = PORT_FONT = "Sans 8"
-PARAM_FONT = "Sans 7.5"
+PARAM_FONT = "Sans 8.5"
 
 # size of the state saving cache in the flow graph (undo/redo functionality)
 STATE_CACHE_SIZE = 42

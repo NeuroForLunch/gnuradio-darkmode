@@ -69,7 +69,7 @@ class Param(CoreParam):
 
         return '<span {underline} {foreground} font_desc="Sans 9">{label}</span>'.format(
             underline='underline="low"' if has_callback else '',
-            foreground='foreground="blue"' if have_pending_changes else
+            foreground='foreground="yellow"' if have_pending_changes else
                        'foreground="red"' if not self.is_valid() else '',
             label=Utils.encode(self.name)
         )

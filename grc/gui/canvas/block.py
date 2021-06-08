@@ -135,7 +135,7 @@ class Block(CoreBlock, Drawable):
             port_separation = PORT_SEPARATION if not has_busses else ports[0].height + PORT_SPACING
             offset = (self.height - (len(ports) - 1) * port_separation - ports[0].height) / 2
             for port in ports:
-                port.create_shapes()            
+                port.create_shapes()
                 port.coordinate = {
                     0: (+self.width, offset),
                     90: (offset, -port.width),
@@ -165,7 +165,7 @@ class Block(CoreBlock, Drawable):
             )
         )
         title_width, title_height = title_layout.get_size()
- 
+
         force_show_id = Actions.TOGGLE_SHOW_BLOCK_IDS.get_active()
 
         # update the params layout
@@ -198,7 +198,7 @@ class Block(CoreBlock, Drawable):
                 min_height = 2 * PORT_BORDER_SEPARATION + sum(
                     port.height + PORT_SPACING for port in ports if port.dtype == 'bus'
                     ) - PORT_SPACING
-            
+
             else:
                 if ports:
                     min_height -= ports[-1].height
@@ -246,7 +246,7 @@ class Block(CoreBlock, Drawable):
                 markups.append('<span></span>')
 
             markups.append('<span foreground="{foreground}" font_desc="{font}">{comment}</span>'.format(
-                foreground='#444' if self.enabled else '#888', font=BLOCK_FONT, comment=Utils.encode(comment)
+                foreground='#A5A5A5' if self.enabled else '#888888', font=8, comment=Utils.encode(comment)
             ))
         if markups:
             layout = self._comment_layout = Gtk.DrawingArea().create_pango_layout('')
@@ -406,4 +406,3 @@ class Block(CoreBlock, Drawable):
                 # Should we be logging something here
                 pass
         return changed
-

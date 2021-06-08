@@ -373,7 +373,7 @@ class FlowGraph(CoreFlowgraph, Drawable):
         # Sanitize delta_coordinate so that blocks don't move to negative coordinate
         delta_coordinate = max(delta_coordinate[0],-min_x), max(delta_coordinate[1], -min_y)
 
-        # Move selected blocks     
+        # Move selected blocks
         for selected_block in blocks:
             selected_block.move(delta_coordinate)
             self.element_moved = True
@@ -521,7 +521,7 @@ class FlowGraph(CoreFlowgraph, Drawable):
         # todo: cache that
         show_comments = Actions.TOGGLE_SHOW_BLOCK_COMMENTS.get_active()
         for element in self._elements_to_draw:
-            if element.is_block and show_comments and element.enabled:
+            if element.is_block and show_comments:
                 yield element.draw_comment
         if self._new_connection is not None:
             yield self._new_connection.draw
@@ -823,7 +823,7 @@ class FlowGraph(CoreFlowgraph, Drawable):
         def sub_extents():
             for element in self._elements_to_draw:
                 yield element.get_extents()
-                if element.is_block and show_comments and element.enabled:
+                if element.is_block and show_comments:
                     yield element.get_extents_comment()
 
         extent = 10000000, 10000000, 0, 0
